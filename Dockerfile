@@ -12,13 +12,28 @@ FROM phusion/passenger-ruby32:2.6.1
 MAINTAINER Autolab Development Team "autolab-dev@andrew.cmu.edu"
 
 # Change to your time zone here
-RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+# RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # Install dependencies
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
   sqlite3 \
   tzdata  \
+  python3 \
+  python3-pip \
+  gcc \
+  g++ \
+  curl \
+  unzip \
+  wget \ 
+  vim \ 
+  iputils-ping \ 
+  telnet \ 
+  supervisor \ 
+  sudo \ 
+  mlocate \
+  gdb \
   shared-mime-info
 
 # Start Nginx / Passenger
