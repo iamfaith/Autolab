@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   sudo \ 
   mlocate \
   gdb \
+  universal-ctags \
   shared-mime-info
 
 # Start Nginx / Passenger
